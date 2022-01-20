@@ -19,63 +19,60 @@ class CheckableOptionView: UIView
     {
         fatalError("init(coder:) has not been implemented")
     }
+    
     private var checkableButton: UIButton!
     private var labelOption: UILabel!
     private let buttonTag: Int = 8080
     
     private func initializeView(index: Int)
     {
+        checkableButton = UIButton(type: .custom)
+        checkableButton.tag = buttonTag + index
         
+        
+        checkableButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        checkableButton.setImage(UIImage(named: "checked"), for: .selected)
+        
+        checkableButton.addTarget(self, action: #selector(optionSelected(sender:)), for: .touchUpInside)
+        
+        labelOption = UILabel()
+        labelOption.numberOfLines = 0
+        labelOption.lineBreakMode = .byWordWrapping
+        
+        addSubview(checkableButton)
+        addSubview(labelOption)
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        checkableButton.translatesAutoresizingMaskIntoConstraints = false
+        labelOption.translatesAutoresizingMaskIntoConstraints = false
+        
+        //Height = 30
+        checkableButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+         
+        //Width = 30
+        checkableButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+         
+        //Leading = 8
+        checkableButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+         
+        //Vertically center
+        centerYAnchor.constraint(equalTo: checkableButton.centerYAnchor).isActive = true
+        
+        //Lable leading = button trailing + 8
+        labelOption.leadingAnchor.constraint(equalTo: checkableButton.trailingAnchor, constant: 8).isActive = true
+         
+        //Top = 8
+        labelOption.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+         
+        //Trailing = 8
+        trailingAnchor.constraint(equalTo: labelOption.trailingAnchor, constant: 8).isActive = true
+         
+        //Bottom = 8
+        bottomAnchor.constraint(equalTo: labelOption.bottomAnchor, constant: 8).isActive = true
     }
-    checkableButton = UIButton(type: .custom)
-    checkableButton.tag = buttonTag + index
     
     
-    checkableButton.setImage(UIImage(named: “unchecked”), for: .normal)
-    checkableButton.setImage(UIImage(named: “checked”), for: .selected)
     
-    checkableButton.addTarget(self, action: #selector(optionSelected(sender:)), for: .touchUpInside)
-    
-    labelOption = UILabel()
-    labelOption.numberOfLines = 0
-    labelOption.lineBreakMode = .byWordWrapping
-    
-    addSubview(checkableButton)
-    addSubview(labelOption)
-    
-    translatesAutoresizingMaskIntoConstraints = false
-    checkableButton.translatesAutoresizingMaskIntoConstraints = false
-    labelOption.translatesAutoresizingMaskIntoConstraints = false
-    
-    //Height = 30
-    checkableButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-     
-    //Width = 30
-    checkableButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-     
-    //Leading = 8
-    checkableButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-     
-    //Vertically center
-    centerYAnchor.constraint(equalTo: checkableButton.centerYAnchor).isActive = true
-    
-    //Lable leading = button trailing + 8
-    labelOption.leadingAnchor.constraint(equalTo: checkableButton.trailingAnchor, constant: 8).isActive = true
-     
-    //Top = 8
-    labelOption.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-     
-    //Trailing = 8
-    trailingAnchor.constraint(equalTo: labelOption.trailingAnchor, constant: 8).isActive = true
-     
-    //Bottom = 8
-    bottomAnchor.constraint(equalTo: labelOption.bottomAnchor, constant: 8).isActive = true
-    
-    protocol CheckableOptionViewDelegate: class {
-        func checkableOptionView(option: Int)
-    }
-     
-    public weak var delegate: CheckableOptionViewDelegate?
     
     
     //To mark an option selected
@@ -140,3 +137,9 @@ class CheckableOptionView: UIView
         }
     }
 }
+protocol CheckableOptionViewDelegate: AnyObject
+{
+    func checkableOptionView(option: Int)
+}
+ 
+public weak var delegate: CheckableOptionViewDelegate?

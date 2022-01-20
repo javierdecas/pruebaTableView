@@ -7,17 +7,12 @@
 
 import UIKit
 
-class CheckableTableViewCell: UITableViewCell {
-
-    
-    class CheckableTableViewCell: UITableViewCell
+class CheckableTableViewCell: UITableViewCell
+{
+    override func awakeFromNib()
     {
-        override func awakeFromNib()
-        {
-           super.awakeFromNib()
-           initializeCell()
-        }
-     
+       super.awakeFromNib()
+       initializeCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,7 +20,6 @@ class CheckableTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
     
     private let headerView = UIView()
     private let footerView = UIView()
@@ -153,9 +147,12 @@ class CheckableTableViewCell: UITableViewCell {
            }
         }
     }
-    public func clearSelection() {
-        for subview in contentView.subviews {
-           if let checkableOptionView = subview as? CheckableOptionView {
+    public func clearSelection()
+    {
+        for subview in contentView.subviews
+        {
+           if let checkableOptionView = subview as? CheckableOptionView
+            {
               checkableOptionView.selected = false
            }
         }
@@ -195,7 +192,9 @@ class CheckableTableViewCell: UITableViewCell {
         }
     }
     
-    // Store previous option view to add constraints
+    public func addOptions(options: [String]) {
+     
+        // Store previous option view to add constraints
         var previousView: CheckableOptionView? = nil
      
         var i=0
@@ -264,32 +263,37 @@ class CheckableTableViewCell: UITableViewCell {
         }
     }
 
-    protocol CheckableTableViewCellDelegate: class {
-        func checkableTableViewCell(_ cell: CheckableTableViewCell, option: Int)
-    }
+    
 
-    extension CheckableTableViewCell: CheckableOptionViewDelegate {
-        func checkableOptionView(option: Int) {
-     
-           //Deselect all other options
-           for subview in contentView.subviews {
-              if let checkableOptionView = subview as? CheckableOptionView {
-                 if checkableOptionView.option != option {
-                    checkableOptionView.selected = false
-                 }
-              }
-           }
-     
-           // Call delegate method to inform view controller.
-           delegate?.checkableTableViewCell(self, option: option)
-        }
+    
+}
+protocol CheckableTableViewCellDelegate: AnyObject
+{
+    func checkableTableViewCell(_ cell: CheckableTableViewCell, option: Int)
+}
+extension CheckableTableViewCell: CheckableOptionViewDelegate
+{
+    func checkableOptionView(option: Int) {
+ 
+       //Deselect all other options
+       for subview in contentView.subviews {
+          if let checkableOptionView = subview as? CheckableOptionView {
+             if checkableOptionView.option != option {
+                checkableOptionView.selected = false
+             }
+          }
+       }
+ 
+       // Call delegate method to inform view controller.
+       delegate?.checkableTableViewCell(self, option: option)
     }
+}
 
-    extension Collection where Indices.Iterator.Element == Index {
-     
-        // Return object if present otherwise nil.
-        subscript (safe index: Index) -> Generator.Element? {
-           return indices.contains(index) ? self[index] : nil
-        }
+extension Collection where Indices.Iterator.Element == Index
+{
+ 
+    // Return object if present otherwise nil.
+    subscript (safe index: Index) -> Generator.Element? {
+       return indices.contains(index) ? self[index] : nil
     }
 }
