@@ -137,7 +137,7 @@ class CheckableOptionView: UIView
         }
     }
 }
-protocol CheckableOptionViewDelegate: AnyObject
+public protocol CheckableOptionViewDelegate: AnyObject
 {
     func checkableOptionView(option: Int)
 }
