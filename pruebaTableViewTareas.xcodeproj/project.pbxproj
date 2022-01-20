@@ -13,6 +13,8 @@
 		0DD302B42799946E00738745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD302B22799946E00738745 /* Main.storyboard */; };
 		0DD302B62799947000738745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD302B52799947000738745 /* Assets.xcassets */; };
 		0DD302B92799947000738745 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD302B72799947000738745 /* LaunchScreen.storyboard */; };
+		0DD302C1279994EA00738745 /* CheckableOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD302C0279994EA00738745 /* CheckableOptionView.swift */; };
+		0DD302C32799998700738745 /* CheckableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD302C22799998700738745 /* CheckableTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0DD302B52799947000738745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DD302B82799947000738745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DD302BA2799947000738745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DD302C0279994EA00738745 /* CheckableOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableOptionView.swift; sourceTree = "<group>"; };
+		0DD302C22799998700738745 /* CheckableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				0DD302AE2799946E00738745 /* SceneDelegate.swift */,
 				0DD302B02799946E00738745 /* ViewController.swift */,
 				0DD302B22799946E00738745 /* Main.storyboard */,
+				0DD302C0279994EA00738745 /* CheckableOptionView.swift */,
+				0DD302C22799998700738745 /* CheckableTableViewCell.swift */,
 				0DD302B52799947000738745 /* Assets.xcassets */,
 				0DD302B72799947000738745 /* LaunchScreen.storyboard */,
 				0DD302BA2799947000738745 /* Info.plist */,
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DD302B12799946E00738745 /* ViewController.swift in Sources */,
+				0DD302C32799998700738745 /* CheckableTableViewCell.swift in Sources */,
 				0DD302AD2799946E00738745 /* AppDelegate.swift in Sources */,
+				0DD302C1279994EA00738745 /* CheckableOptionView.swift in Sources */,
 				0DD302AF2799946E00738745 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
