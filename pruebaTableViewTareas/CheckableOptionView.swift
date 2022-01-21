@@ -72,9 +72,6 @@ class CheckableOptionView: UIView
     }
     
     
-    
-    
-    
     //To mark an option selected
     public var selected: Bool = false {
         didSet {
@@ -124,7 +121,6 @@ class CheckableOptionView: UIView
     
     @objc private func optionSelected(sender: UIButton)
     {
-     
         if !optionSelectable {
            return
         }
@@ -136,10 +132,11 @@ class CheckableOptionView: UIView
            delegate?.checkableOptionView(option: sender.tag - buttonTag)
         }
     }
+    public weak var delegate: CheckableOptionViewDelegate?
 }
-public protocol CheckableOptionViewDelegate: AnyObject
+protocol CheckableOptionViewDelegate: AnyObject
 {
     func checkableOptionView(option: Int)
 }
- 
-public weak var delegate: CheckableOptionViewDelegate?
+
+

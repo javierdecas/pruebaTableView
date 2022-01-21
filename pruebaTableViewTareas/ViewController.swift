@@ -7,24 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource
+class ViewController: UIViewController, UITableViewDataSource, CheckableTableViewCellDelegate, UITableViewDelegate
 {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+    func checkableTableViewCell(_ cell: CheckableTableViewCell, option: Int)
+    {
+        
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CheckableTableViewCell
-         
-        cell.delegate = self
-         
-        cell.question = “Question Text”
-        cell.options = [“Option1”, “Option2”, “Option3”] // Option array
-        cell.answer = "Answer Text"
-    }
+    var userTasks: [UserTask]?
     
+   
     
-    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -34,7 +27,32 @@ class ViewController: UIViewController, UITableViewDataSource
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+//        if let tasks = userTasks {
+//            return tasks.count
+//        }
+//        return 0
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! CheckableTableViewCell
+         
+        cell.delegate = self
+         
+        cell.question = "Tarea 1: Investigación de AR"
+        cell.options = ["Pass", "Merit", "Distintion"] // Option array
+        cell.answer = "Answer Text"
+        
+        cell.selectedOption = 1 // Starts with index 0.
+        
+        return cell
+    }
 
 }
 
