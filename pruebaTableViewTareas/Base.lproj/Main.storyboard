@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" id="zg7-p9-xpc" customClass="UserTaskTableViewCell" customModule="Powertask" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="70.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" id="zg7-p9-xpc" customClass="CheckableTableViewCell" customModule="pruebaTableViewTareas" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="70.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zg7-p9-xpc" id="yOK-Cy-jQD">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
@@ -64,12 +65,6 @@
                                         <constraint firstItem="Ys5-Zt-I4W" firstAttribute="top" secondItem="Tna-Vn-Kgd" secondAttribute="bottom" id="sHG-cL-1Us"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="courseColorImage" destination="RpU-Df-yK6" id="qvB-YD-VR0"/>
-                                    <outlet property="doneButton" destination="9cO-mJ-0fZ" id="wQd-tk-FXD"/>
-                                    <outlet property="taskDueDateLabel" destination="Ys5-Zt-I4W" id="Ahn-Of-3ed"/>
-                                    <outlet property="taskNameLabel" destination="Tna-Vn-Kgd" id="b9m-W9-0GG"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>

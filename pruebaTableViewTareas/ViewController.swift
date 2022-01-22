@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITableViewDataSource, CheckableTableVie
     
     var userTasks: [UserTask]?
     
-   
     
     override func viewDidLoad()
     {
